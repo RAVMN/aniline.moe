@@ -14,7 +14,7 @@
 		<?php if ( has_post_thumbnail() ) { ?>
 			<figure>
 	<a href="<?php the_permalink() ?>"><img src="<?php
-$image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = '' );
+$image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = 'full');
 echo $image[0];
 ?>" /></a>
 			</figure> <?php } ?></div>

@@ -1,12 +1,10 @@
 <article id="area-lateral" class="hentry">
 	<header class="entry-header">¡Bienvenido a Aniline!</header>
 	<div class="entry-content clearfix">
-		<p style="text-align: justify;">Noticias y fichas de anime en español.</p>
+		<p style="text-align: justify;">Noticias de anime y japón en español.</p>
 		<p style="text-align: justify;">¡Esperamos ser de tu agrado!</p>
-		<p style="text-align: center;">Síguenos en <a href="https://www.facebook.com/anilinemoe" target="_blank"><strong>Facebook</strong></a> o <strong><a href="https://twitter.com/anilinemoe" target="_blank">Twitter</a></strong>, donde algún día (eventualmente) tendremos contenido :p</p>
-		<center><img src="https://i2.wp.com/www.aniline.moe/wp-content/uploads/cropped-logodelta-1.png"/></center>
-		<p>Agradecemos a:</p>
-		<p style="text-align: center;"><a href="http://adf.ly/2283512/http://animeflv.net/" target="_blank">AnimeFLV</a> &#8211; <a href="http://adf.ly/2283512/http://jkanime.net/" target="_blank">JKAnime</a> -<a href="http://adf.ly/2283512/http://reyanime.com/" target="_blank">ReyAnime</a> &#8211; <a href="http://adf.ly/2283512/http://www.animeid.tv/" target="_blank">AnimeID</a> &#8211; <a href="http://adf.ly/2283512/http://www.crunchyroll.com" target="_blank">Crunchyroll</a></p>
+		<center><img src="http://i.imgur.com/hlvr8uR.gif"/></center>
+<?php /** https://i2.wp.com/www.aniline.moe/wp-content/uploads/cropped-logodelta-1.png */ ?>
 	</div>
 </article>
 
