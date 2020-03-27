@@ -38,7 +38,9 @@ add_action( 'after_setup_theme', 'aniline_setup' );
 /** Enqueue scripts and styles */
 function aniline_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
-	if ( is_post_type_archive('anime') || is_tax('temporada') ) {wp_enqueue_script( 'aniline-masonry', get_template_directory_uri() . '/jquery.masonry.min.js' );} }
+	wp_enqueue_style('optimizer-icons',get_template_directory_uri().'/fonts/font-awesome.css', 'font_awesome' );
+	wp_enqueue_script('optimizer_js',get_template_directory_uri().'/optimizer.js', array('jquery'), true);
+	 }
 add_action( 'wp_enqueue_scripts', 'aniline_scripts' );
 
 /*Modificamos cantidad de fichas según tipo de índice*/
