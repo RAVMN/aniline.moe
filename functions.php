@@ -2,37 +2,28 @@
 /** Aniline functions and definitions */
 
 if ( ! function_exists( 'aniline_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which runs
- * before the init hook. The init hook is too late for some features, such as indicating
- * support post thumbnails.
- */
+
+/** Sets up theme defaults and registers support for various WordPress features.
+ * Note that this function is hooked into the after_setup_theme hook, which runs before the init hook.
+ * The init hook is too late for some features, such as indicating support post thumbnails. */
+
 function aniline_setup() {
 	require( get_template_directory() . '/inc/template-tags.php' );	/** Custom template tags for this theme. */
 	require( get_template_directory() . '/inc/options-functions.php' ); /** Functions to enable the options */
 	require( get_template_directory() . '/inc/customizer.php' ); /** Customizer additions */
 
-	/** Eliminacion enlaces del feed */
+	/** Ajustes interfaz */
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
 	remove_action( 'wp_head', 'feed_links', 2 );
-
-	/** Enable support for Post Thumbnails */
-	add_theme_support( 'post-thumbnails' );
-
-	/** Creación de menús */
-	register_nav_menus( array(
-		'primary' => 'Primary Menu',
-		'abc-menu' => 'Alfabeto',
-		'cat-menu' => 'Categorias', ) );
-	
-	/** Mostrar nombre de la web en el título */
 	function aniline_wp_title( $title, $sep ) {
 		global $page;
 		$title .= get_bloginfo( 'name' );
 		return $title; }
-	add_filter( 'wp_title', 'aniline_wp_title', 10, 2 ); }
+	add_filter( 'wp_title', 'aniline_wp_title', 10, 2 );
+	register_nav_menus( array(
+		'primary' => 'Primary Menu',
+		'abc-menu' => 'Alfabeto', ) );
+	add_theme_support( 'post-thumbnails' ); }
 
 endif; // aniline_setup
 add_action( 'after_setup_theme', 'aniline_setup' );
@@ -43,20 +34,13 @@ function aniline_scripts() {
 	if ( !is_singular() && !is_404() ) {wp_enqueue_script( 'aniline-masonry', get_template_directory_uri() . '/jquery.masonry.min.js' );} }
 add_action( 'wp_enqueue_scripts', 'aniline_scripts' );
 
-/** Adds a body class for masonry layouts */
-function aniline_body_class( $classes ) {
-	if ( !is_singular() && !is_404() && !is_search() )
-		$classes[] = 'masonry';
-	return $classes;}
-add_filter('body_class','aniline_body_class');
-
 /*Modificamos cantidad de fichas según tipo de índice*/
 function hwl_home_pagesize( $query ) {
     if ( is_admin() || ! $query->is_main_query() )
         return;
 
     if ( is_home() ) {
-        $query->set( 'posts_per_page', 10 );
+        $query->set( 'posts_per_page', 6 );
         $query->set( 'order', 'desc' );
         return;}
 
@@ -77,11 +61,6 @@ function hwl_home_pagesize( $query ) {
         $query->set( 'orderby', 'meta_value' );
         return;} }
 add_action( 'pre_get_posts', 'hwl_home_pagesize', 1 );
-
-/** Búsqueda desde el menú, incluye el botón */
-function add_search_to_wp_menu ( $items, $args ) { if( 'primary' === $args -> theme_location ) {
-$items .= '<li><form method="get" action="' . get_bloginfo('home') . '/"><input type="search" name="s" placeholder="Buscar..." />&nbsp<input type="submit" value="" /></form></li>';} return $items;}
-add_filter('wp_nav_menu_items','add_search_to_wp_menu',10,2);
 
 /** Paneles personalizados en dashboard*/
 add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
@@ -131,5 +110,4 @@ function macgamer_jetpack_photon_image_downsize_array( $photon_args ) {
 	$photon_args['resize'];
 	unset( $photon_args['fit'] );
 	return $photon_args; }
-
 ?>

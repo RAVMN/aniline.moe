@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div id="content" class="site-content masonry" role="main">
 
-<article id="post-recientes" class="hentry">
+<article id="area-principal" class="hentry">
 	<header class="entry-header">Noticias recientes</header>
 <div class="entry-summary"><table>
 <?php global $post;
@@ -11,7 +11,7 @@ foreach( $myposts as $post ) :	setup_postdata($post); ?>
 <tr><td>
 <a href="<?php the_permalink() ?>">
 <?php if ( has_post_thumbnail() ) { ?>
-	<img class="alignleft" id="destacado" src="<?php
+	<img class="alignleft" src="<?php
 	add_filter( 'jetpack_photon_image_downsize_array', 'macgamer_jetpack_photon_image_downsize_array' );
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id(), array(110,130) );
 	remove_filter( 'jetpack_photon_image_downsize_array', 'macgamer_jetpack_photon_image_downsize_array' );
@@ -19,12 +19,13 @@ foreach( $myposts as $post ) :	setup_postdata($post); ?>
 	?>?resize=110,130" />
 	<?php } ?>
 <strong><?php the_title(); ?></strong></a><br><?php the_excerpt(); ?>
+<?php aniline_posted_on(); ?><span class="entry-fecha"><a href="<?php the_permalink(); ?>">Leer más</a></span><br><br>
 </td></tr>
 <?php endforeach; wp_reset_query(); ?>
 </table></div>
 </article>
 
-<article id="post-bienvenida" class="hentry">
+<article id="area-lateral" class="hentry">
 	<header class="entry-header">¡Bienvenido a Aniline!</header>
 	<div class="entry-content clearfix">
 		<p style="text-align: justify;">Noticias y fichas de anime en español.</p>
@@ -45,10 +46,10 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = 'full');
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="hentry">
-	<header class="entry-header"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></header>
+	<header class="entry-header"><?php the_title(); ?></header>
 	<div class="single-featured-image"><a href="<?php the_permalink() ?>"><img src="<?php echo $image[0]; ?>" /></a></div>
 </article>
-<?php  endwhile; } wp_reset_query(); ?>
+<?php endwhile; } wp_reset_query(); ?>
 
 </div>
 <?php get_footer(); ?>

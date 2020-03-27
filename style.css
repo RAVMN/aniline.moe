@@ -2,11 +2,10 @@
 Theme Name: Anilina
 Author: RAVMN
 Author URI: http://www.ravmn.cl
-Description: Anilina es un tema basado en Visual, que a su vez está basado en underscores.me
-Version: 2.0
+Description: Anilina es un tema basado en Masonry.js
+Version: 2.1
 Tags: responsive-layout, fluid-layout, featured-images
-
-El tema hace uso de Masonry.js (http://masonry.desandro.com) */
+*/
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -32,8 +31,7 @@ em, i {font-style: italic;}
 blockquote {margin: 0 15px;}
 pre {font-family: "Courier 10 Pitch", Courier, monospace; font-size: 14px; font-size: 1.4rem; padding: 15px; overflow: auto; max-width: 100%; margin-bottom: 15px; border-radius: 6px;}
 code {font-family: "Courier 10 Pitch", Courier, monospace; font-size: 14px; font-size: 1.4rem;}
-input {font-size: 100%; background: #191919; color: #eee; border: none; border-radius: 3px; padding: 4px; line-height: normal; *overflow: visible;}
-input[type="submit"] {background: transparent url("lupa.svg") no-repeat; height: 25px; width: 25px; border-radius: 3px; cursor:pointer;}
+input[type="submit"] {background-color: #0972DB; color: #eee; height: 25px; width: 25px; border: none; border-radius: 3px; cursor:pointer;}
 
 /* Structure */
 .alignleft {display: inline; float: left; margin-right: 15px;}
@@ -47,14 +45,14 @@ input[type="submit"] {background: transparent url("lupa.svg") no-repeat; height:
 ----------------------------------------------- */
 body, input {font-family: "Fira Sans", sans-serif; font-weight: 400; font-size: 14px; font-size: 1.4rem; line-height: 1.5;}
 body {background-image: url("tile.png"); background-color: gray; color:#eee;}
-a {color: #2D94FB; text-decoration: none; transition: color 0.2s ease-out;}
+a {color: #6eddff; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8); text-decoration: none; transition: color 0.2s ease-out;}
 a:hover {text-decoration: underline; color: #eee;}
-#page {background:url("shadowtemp.png") no-repeat  bottom right; z-index: -21;}
-#csscabecera {background: #0972DB; position: relative;  min-height: 80px;}
-#csscabecera a {padding: 20px 10px 10px; float: left; font-size: 40px; font-size: 4rem; letter-spacing: 1px; color: #eee; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);}
-#csscabecera :hover {color: #888; text-decoration: none;}
-#csscabecera .cssmenu a, .cssmenu li:last-of-type {font-size: 20px; font-size: 2rem; padding: 50px 5px 0px;}
-.cssmenu ul {float: right; list-style: none; margin: 0;}
+#page {background:url("silueta.png") no-repeat  bottom right; z-index: -21;}
+#csscabecera {background: #0972DB; position: relative;}
+#csscabecera a {float: left; padding: 5px; font-size: 40px; font-size: 4rem; letter-spacing: 1px; color: #eee;}
+#csscabecera :hover {color: #aaa; text-decoration: none;}
+#csscabecera .cssmenu a {font-size: 15px; font-size: 1.5rem;}
+.cssmenu ul {float: right; clear: left; list-style: none; margin: 0px;}
 .cssmenu li {float: left;}
 #cssfooter {background: #1F1F1F; padding: 10px;}
 #cssfooter a {color: #ddd;}
@@ -66,14 +64,14 @@ html, body {height: 100%;}
 
 /* =Content
 ----------------------------------------------- */
-.hentry {margin: 10px 0px 10px 0px; border-radius: 3px; overflow: hidden; background: rgba(22, 22, 23, 0.8); box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6); border: none;}
-.entry-header {font-size: 20px; font-size: 2.0rem; padding: 10px; border-bottom: 1px solid #333;}
+.hentry {margin: 10px 0px 10px 0px; border-radius: 3px; overflow: hidden; background: rgba(110, 110, 110, 0.8); box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6); border: none;}
+.entry-header {font-size: 20px; font-size: 2.0rem; padding: 10px; border-bottom: 1px solid #999;}
 .post-metadata {border-bottom: 1px solid #515151;}
 .entry-content, .entry-summary {padding: 15px; text-align: justify;}
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {font-weight: 700; margin-bottom: 15px;}
 .entry-content h1, .entry-content h2 {font-size: 18px; font-size: 1.8rem; letter-spacing: 1px;}
 .entry-content h3 {font-size: 16px; font-size: 1.6rem;}
-.entry-content h4, .entry-content h6 {font-size: 15px; font-size: 1.5rem;}
+.entry-content h4, .entry-content h6 {font-size: 13px; font-size: 1.3rem;}
 .entry-meta {clear: both; font-size: 13px; font-size: 1.3rem; padding: 10px; border-top: 1px solid #515151}
 .entry-meta a {color: #ddd;}
 .entry-fecha {float: right;}
@@ -87,16 +85,13 @@ embed, iframe, object {max-width: 100%;}
 /* =Masonry Layout
 ----------------------------------------------- */
 .masonry .hentry {float: left; width: 32%; margin-right: 10px;}
-.masonry .hentry img {display: block; width: 100%; height: auto;}
-.masonry .entry-title a {color: #fff;}
+.single-featured-image img {display: block; width: 100%; height: auto;}
+.entry-title a {color: #fff;}
 figure {margin: 0px;}
-#destacado{max-width: 100px;}
 
 /* =Caja gris superior
 ----------------------------------------------- */
 .page-header {border: 1px solid #292929; border-radius: 3px; margin-top: 10px; padding: 10px; background: rgba(65, 65, 65, 0.9);}
-.page-header .page-title {font-size: 16px; font-size: 1.6rem;}
-.taxonomy-description p {margin: 5px 0 0;}
 .caja {text-align: center;}
 .caja ul {margin: 0; padding: 0;}
 .caja li {display: inline; padding: 5px}
@@ -117,23 +112,19 @@ spon {padding: 10px; display: block;}
 .compartir img {width: 30px; padding: 0px 3px 2px; display: inline;}
 .compartir {font-size: 18px; float: right;}
 #cambiotemporada {float: right;}
-#letrasstyle .hentry {width: auto;}
-#post-totales .hentry {width: auto;}
 
 /* =Responsive
 ----------------------------------------------- */
 @media screen and (max-width: 821px) {
   .masonry .hentry {width: 48%;}
   .section {padding:0 10px;}
-  #post-bienvenida {float: left;}
-  #post-recientes {width:100%;}
-  .cssmenu li:last-of-type {display: none;}}
+  #area-lateral {float: left;}
+  #area-principal {width:100%;}}
 @media screen and (max-width: 495px) {.masonry .hentry {width:100%;}}
 @media screen and (max-width: 360px) {
   .post-metadata img {float:none; display:block; margin: 10px auto;}
   spon {padding: 0px 10px; display: block;}
   table {font-size: 1.2rem;}
-  #csscabecera a {font-size: 35px; font-size: 3.5rem;}
-  #csscabecera .cssmenu a {font-size: 15px; font-size: 1.5rem;}}
+  #csscabecera a {font-size: 35px; font-size: 3.5rem;}}
 @media screen and (max-width: 609px) {.letrasmore {display:none;}}
-@media screen and (min-width: 822px) {#post-recientes {width:65%;}}
+@media screen and (min-width: 822px) {#area-principal {width:65%;}}
