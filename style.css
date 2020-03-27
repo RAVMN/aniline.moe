@@ -1,0 +1,139 @@
+/*
+Theme Name: Anilina
+Author: RAVMN
+Author URI: http://www.ravmn.cl
+Description: Anilina es un tema basado en Visual, que a su vez está basado en underscores.me
+Version: 2.0
+Tags: responsive-layout, fluid-layout, featured-images
+
+El tema hace uso de Masonry.js (http://masonry.desandro.com) */
+
+/* =Reset
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, del, em, font, ins, q, s, samp, strike, strong, ol, ul, li, fieldset, form, label, legend, table, caption, tr, th, td {border: 0; font-family: inherit; font-size: 100%; font-style: inherit; font-weight: inherit; margin: 0; outline: 0; padding: 0;}
+html {font-size: 62.5%; overflow-y: scroll;}
+ol, ul {list-style: none;}
+table {border-collapse: collapse; border-spacing: 0; width: 100%;}
+td {min-width: 70px; padding: 3px;}
+th {font-weight: bold; padding: 3px;}
+
+/* =Global
+----------------------------------------------- */
+/* Headings */
+h1, h2, h3, h4, h5, h6 {clear: both;}
+hr {background-color: #ccc; border: 0; height: 1px; margin-bottom: 15px;}
+p {margin-bottom: 15px;}
+ul, ol {margin: 0 0 15px 3em;}
+ul {list-style: disc;}
+ol {list-style: decimal;}
+ul ul, ol ol, ul ol, ol ul {margin-bottom: 0; margin-left: 15px;}
+b, strong {font-weight: bold;}
+em, i {font-style: italic;}
+blockquote {margin: 0 15px;}
+pre {font-family: "Courier 10 Pitch", Courier, monospace; font-size: 14px; font-size: 1.4rem; padding: 15px; overflow: auto; max-width: 100%; margin-bottom: 15px; border-radius: 6px;}
+code {font-family: "Courier 10 Pitch", Courier, monospace; font-size: 14px; font-size: 1.4rem;}
+input {font-size: 100%; background: #191919; color: #eee; border: none; border-radius: 3px; padding: 4px; line-height: normal; *overflow: visible;}
+input[type="submit"] {background: transparent url("lupa.svg") no-repeat; height: 25px; width: 25px; border-radius: 3px; cursor:pointer;}
+
+/* Structure */
+.alignleft {display: inline; float: left; margin-right: 15px;}
+.alignright {display: inline; float: right; margin-left: 15px;}
+.aligncenter {clear: both; display: block; margin: 0 auto;}
+.clearfix:before, .clearfix:after {content: " "; display: table;}
+.clearfix:after {clear: both;}
+.section {margin: 0 auto; max-width: 1020px;}
+
+/* =Esqueleto
+----------------------------------------------- */
+body, input {font-family: "Fira Sans", sans-serif; font-weight: 400; font-size: 14px; font-size: 1.4rem; line-height: 1.5;}
+body {background-image: url("tile.png"); background-color: gray; color:#eee;}
+a {color: #2D94FB; text-decoration: none; transition: color 0.2s ease-out;}
+a:hover {text-decoration: underline; color: #eee;}
+#page {background:url("shadowtemp.png") no-repeat  bottom right; z-index: -21;}
+#csscabecera {background: #0972DB; position: relative;  min-height: 80px;}
+#csscabecera a {padding: 20px 10px 10px; float: left; font-size: 40px; font-size: 4rem; letter-spacing: 1px; color: #eee; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);}
+#csscabecera :hover {color: #888; text-decoration: none;}
+#csscabecera .cssmenu a, .cssmenu li:last-of-type {font-size: 20px; font-size: 2rem; padding: 50px 5px 0px;}
+.cssmenu ul {float: right; list-style: none; margin: 0;}
+.cssmenu li {float: left;}
+#cssfooter {background: #1F1F1F; padding: 10px;}
+#cssfooter a {color: #ddd;}
+
+/* =Sticky Footer
+----------------------------------------------- */
+html, body {height: 100%;}
+#page {min-height: 100%; height: auto !important; height: 100%; margin: 0 auto 0px;}
+
+/* =Content
+----------------------------------------------- */
+.hentry {margin: 10px 0px 10px 0px; border-radius: 3px; overflow: hidden; background: rgba(22, 22, 23, 0.8); box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6); border: none;}
+.entry-header {font-size: 20px; font-size: 2.0rem; padding: 10px; border-bottom: 1px solid #333;}
+.post-metadata {border-bottom: 1px solid #515151;}
+.entry-content, .entry-summary {padding: 15px; text-align: justify;}
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {font-weight: 700; margin-bottom: 15px;}
+.entry-content h1, .entry-content h2 {font-size: 18px; font-size: 1.8rem; letter-spacing: 1px;}
+.entry-content h3 {font-size: 16px; font-size: 1.6rem;}
+.entry-content h4, .entry-content h6 {font-size: 15px; font-size: 1.5rem;}
+.entry-meta {clear: both; font-size: 13px; font-size: 1.3rem; padding: 10px; border-top: 1px solid #515151}
+.entry-meta a {color: #ddd;}
+.entry-fecha {float: right;}
+#FatPandaFacebookComments {overflow-x:scroll;}
+
+/* =Media
+----------------------------------------------- */
+.hentry img {max-width: 100%; height: auto; width: auto;}
+embed, iframe, object {max-width: 100%;}
+
+/* =Masonry Layout
+----------------------------------------------- */
+.masonry .hentry {float: left; width: 32%; margin-right: 10px;}
+.masonry .hentry img {display: block; width: 100%; height: auto;}
+.masonry .entry-title a {color: #fff;}
+figure {margin: 0px;}
+#destacado{max-width: 100px;}
+
+/* =Caja gris superior
+----------------------------------------------- */
+.page-header {border: 1px solid #292929; border-radius: 3px; margin-top: 10px; padding: 10px; background: rgba(65, 65, 65, 0.9);}
+.page-header .page-title {font-size: 16px; font-size: 1.6rem;}
+.taxonomy-description p {margin: 5px 0 0;}
+.caja {text-align: center;}
+.caja ul {margin: 0; padding: 0;}
+.caja li {display: inline; padding: 5px}
+.caja a {text-decoration:none; color: #EEE;}
+.caja a:hover {color: #40d7bc;}
+
+/* =Cajas de botones de navegación */
+#nav-below {clear: both; margin-bottom:10px;}
+#nav-below a {padding: 7px 10px; float: left; border:1px solid #292929; border-radius: 4px; background: rgba(65, 65, 65, 0.9); color: #ddd; text-decoration: none;}
+#nav-below .nav-next a {float: right;}
+#nav-below a:hover {color: white;}
+
+/* Metadatos */
+spin {display: none;}
+.single-featured-image:hover spin {background:rgba(0, 0, 0, 0.8); color:white; position:absolute; min-width: 100%; margin:15px 0px; padding:10px; display:block;}
+.post-metadata img {float: left; margin: 10px;}
+spon {padding: 10px; display: block;}
+.compartir img {width: 30px; padding: 0px 3px 2px; display: inline;}
+.compartir {font-size: 18px; float: right;}
+#cambiotemporada {float: right;}
+#letrasstyle .hentry {width: auto;}
+#post-totales .hentry {width: auto;}
+
+/* =Responsive
+----------------------------------------------- */
+@media screen and (max-width: 821px) {
+  .masonry .hentry {width: 48%;}
+  .section {padding:0 10px;}
+  #post-bienvenida {float: left;}
+  #post-recientes {width:100%;}
+  .cssmenu li:last-of-type {display: none;}}
+@media screen and (max-width: 495px) {.masonry .hentry {width:100%;}}
+@media screen and (max-width: 360px) {
+  .post-metadata img {float:none; display:block; margin: 10px auto;}
+  spon {padding: 0px 10px; display: block;}
+  table {font-size: 1.2rem;}
+  #csscabecera a {font-size: 35px; font-size: 3.5rem;}
+  #csscabecera .cssmenu a {font-size: 15px; font-size: 1.5rem;}}
+@media screen and (max-width: 609px) {.letrasmore {display:none;}}
+@media screen and (min-width: 822px) {#post-recientes {width:65%;}}
