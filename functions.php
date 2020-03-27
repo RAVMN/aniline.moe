@@ -15,6 +15,13 @@ function aniline_setup() {
 	/** Ajustes interfaz */
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
 	remove_action( 'wp_head', 'feed_links', 2 );
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 	function aniline_wp_title( $title, $sep ) {
 		global $page;
 		$title .= get_bloginfo( 'name' );
@@ -31,7 +38,7 @@ add_action( 'after_setup_theme', 'aniline_setup' );
 /** Enqueue scripts and styles */
 function aniline_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
-	if ( !is_singular() && !is_404() ) {wp_enqueue_script( 'aniline-masonry', get_template_directory_uri() . '/jquery.masonry.min.js' );} }
+	if ( is_post_type_archive('anime') || is_tax('temporada') ) {wp_enqueue_script( 'aniline-masonry', get_template_directory_uri() . '/jquery.masonry.min.js' );} }
 add_action( 'wp_enqueue_scripts', 'aniline_scripts' );
 
 /*Modificamos cantidad de fichas según tipo de índice*/
@@ -44,18 +51,18 @@ function hwl_home_pagesize( $query ) {
         $query->set( 'order', 'desc' );
         return;}
 
-    if ( is_post_type_archive( 'anime' ) ) {
-        $query->set( 'posts_per_page', 9 );
+    if ( is_post_type_archive('anime') ) {
+        $query->set( 'posts_per_page', 18 );
         $query->set( 'orderby', 'rand' );
         return;}
 
-    if ( is_tax( 'letra' ) ) {
+    if ( is_tax('letra') ) {
         $query->set( 'posts_per_page' , -1 );
 	$query->set( 'order', 'asc' );
         $query->set( 'orderby', 'title' );
         return;}
 
-    if ( is_tax( 'temporada' ) ) {
+    if ( is_tax('temporada') ) {
         $query->set( 'posts_per_page', 30 );
         $query->set( 'order', '&meta_key=fecha-de-estreno' );
         $query->set( 'orderby', 'meta_value' );
@@ -110,4 +117,10 @@ function macgamer_jetpack_photon_image_downsize_array( $photon_args ) {
 	$photon_args['resize'];
 	unset( $photon_args['fit'] );
 	return $photon_args; }
+
+function stop_heartbeat() {
+	global $pagenow;
+	if ( $pagenow != 'post.php' && $pagenow != 'post-new.php' ) {wp_deregister_script('heartbeat');} }
+add_action( 'init', 'stop_heartbeat', 1 );
+
 ?>

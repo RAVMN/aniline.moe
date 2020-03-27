@@ -42,7 +42,7 @@ $my_query = null;
 $my_query = new WP_Query($args);
 if( $my_query->have_posts() ) {
   while ($my_query->have_posts()) : $my_query->the_post();
-$image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = 'full');
+$image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = '');
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="hentry">

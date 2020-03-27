@@ -14,31 +14,51 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = 'full');
 echo $image[0];
 ?>" /></a>
 	<?php } ?>
-<spon><?php 
-$meta_titulo_kanji = types_render_field("titulo-kanji", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_titulo_kanji) ) {echo $meta_titulo_kanji;}
-$meta_titulo_coreano = types_render_field("titulo-coreano", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_titulo_coreano) ) {echo $meta_titulo_coreano;}
-$meta_titulo_chino = types_render_field("titulo-chino", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_titulo_chino) ) {echo $meta_titulo_chino;}
-$meta_titulo_latino = types_render_field("titulo-latino", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_titulo_latino) ) {echo $meta_titulo_latino;}
-$meta_capitulos_totales = types_render_field("capitulos-totales", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_capitulos_totales) ) {echo $meta_capitulos_totales;}
-$meta_productor_animacion = types_render_field("productor-animacion", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_productor_animacion) ) {echo $meta_productor_animacion;}
+<spon><?php
+$meta_kanji = get_post_meta( get_the_ID(), 'wpcf-titulo-kanji', true );
+if ( !empty($meta_kanji) ) {echo '<div class="wpcf-field">Título japonés: ' . $meta_kanji . '</div>';}
+$meta_coreano = get_post_meta( get_the_ID(), 'wpcf-titulo-coreano', true );
+if ( !empty($meta_coreano) ) {echo '<div class="wpcf-field">Título coreano: ' . $meta_coreano . '</div>';}
+$meta_chino = get_post_meta( get_the_ID(), 'wpcf-titulo-chino', true );
+if ( !empty($meta_chino) ) {echo '<div class="wpcf-field">Título chino: ' . $meta_chino . '</div>';}
+$meta_latino = get_post_meta( get_the_ID(), 'wpcf-titulo-latino', true );
+if ( !empty($meta_latino) ) {echo '<div class="wpcf-field">Título latino: ' . $meta_latino . '</div>';}
+$meta_capitulos = get_post_meta( get_the_ID(), 'wpcf-capitulos-totales', true );
+if ( !empty($meta_capitulos) ) {echo '<div class="wpcf-field">Capítulos: ' . $meta_capitulos . '</div>';}
+$meta_productor = get_post_meta( get_the_ID(), 'wpcf-productor-animacion', true );
+if ( !empty($meta_productor) ) {echo '<div class="wpcf-field">Productor: ' . $meta_productor . '</div>';}
+
 $meta_origen_animacion = types_render_field("origen-animacion", array("output"=>"html","show_name"=>"true"));
 if ( !empty($meta_origen_animacion) ) {echo $meta_origen_animacion;}
+/*$meta_origen = get_post_meta( get_the_ID(), 'wpcf-origen-animacion', true );
+if ( !empty($meta_origen) ) {echo '<div class="wpcf-field">Origen: ' . $meta_origen . '</div>';}*/
+
 $meta_estado = types_render_field("estado", array("output"=>"html","show_name"=>"true"));
 if ( !empty($meta_estado) ) {echo $meta_estado;}
+/*$meta_estado = get_post_meta( get_the_ID(), 'wpcf-estado', true );
+if ( !empty($meta_estado) ) {echo '<div class="wpcf-field">Estado: ' . $meta_estado . '</div>';}*/
+
 $meta_tipo = types_render_field("tipo", array("output"=>"html","show_name"=>"true"));
 if ( !empty($meta_tipo) ) {echo $meta_tipo;}
-$meta_fecha_estreno = types_render_field("fecha-de-estreno", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_fecha_estreno) ) {echo $meta_fecha_estreno;}
-$meta_fecha_termino = types_render_field("fecha-de-termino", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_fecha_termino) ) {echo $meta_fecha_termino;}
+/*$meta_tipo = get_post_meta( get_the_ID(), 'wpcf-tipo', true );
+if ( !empty($meta_tipo) ) {echo '<div class="wpcf-field">Tipo: ' . $meta_tipo . '</div>';}*/
+
+$meta_estreno = types_render_field("fecha-de-estreno", array("output"=>"html","show_name"=>"true"));
+if ( !empty($meta_estreno) ) {echo $meta_estreno;}
+
+$meta_termino = types_render_field("fecha-de-termino", array("output"=>"html","show_name"=>"true"));
+if ( !empty($meta_termino) ) {echo $meta_termino;}
+
+/*$meta_estreno = get_post_meta( get_the_ID(), 'wpcf-fecha-de-estreno', true );
+if ( !empty($meta_estreno) ) {echo '<div class="wpcf-field">Fecha de estreno: ' . date( 'j/m/Y' , strtotime( $meta_estreno ) ) . '</div>';}
+$meta_termino = get_post_meta( get_the_ID(), 'wpcf-fecha-de-termino', true );
+if ( !empty($meta_termino) ) {echo '<div class="wpcf-field">Fecha de término: ' . date( 'j/m/Y' , strtotime( string $meta_termino ) ) . '</div>';}*/
+
 $meta_otros_nombres = types_render_field("otros-nombres", array("output"=>"html","show_name"=>"true"));
 if ( !empty($meta_otros_nombres) ) {echo $meta_otros_nombres;}
+/*$meta_otros_nombres = get_post_meta( get_the_ID(), 'wpcf-otros-nombres', true );
+if ( !empty($meta_otros_nombres) ) {echo '<div class="wpcf-field">Otros nombres: ' . $meta_otros_nombres . '</div>';}*/
+
 ?></spon>
 </div>
 <?php endif; ?>
@@ -89,7 +109,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = 'full');
 </article>
 <?php endwhile; } wp_reset_query(); ?>
 
-	<?php aniline_content_nav( 'nav-below' ); ?>
+	<?php aniline_content_nav( 'cajaboton' ); ?>
 	<?php comments_template( '', false ); ?>
 
 </div>

@@ -2,10 +2,10 @@
 $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 get_header(); ?>
 
-<header class="page-header"><div class="caja">
+<header id="menuabc">
 	<form id="cambiotemporada" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get"> <?php wp_dropdown_categories( 'orderby=name&order=DESC&name=temporada&taxonomy=temporada&value_field=slug' ); ?> <input type="submit" value="Ir" /></form>
 	<?php wp_nav_menu( array( 'theme_location' => 'abc-menu' ) ); ?>
-</div></header>
+</header>
 
 <div id="content" class="site-content masonry" role="main">
 

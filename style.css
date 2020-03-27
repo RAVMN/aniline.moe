@@ -21,7 +21,7 @@ th {font-weight: bold; padding: 3px;}
 /* Headings */
 h1, h2, h3, h4, h5, h6 {clear: both;}
 hr {background-color: #ccc; border: 0; height: 1px; margin-bottom: 15px;}
-p {margin-bottom: 15px;}
+p {margin-bottom: 10px;}
 ul, ol {margin: 0 0 15px 3em;}
 ul {list-style: disc;}
 ol {list-style: decimal;}
@@ -64,17 +64,19 @@ html, body {height: 100%;}
 
 /* =Content
 ----------------------------------------------- */
-.hentry {margin: 10px 0px 10px 0px; border-radius: 3px; overflow: hidden; background: rgba(110, 110, 110, 0.8); box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6); border: none;}
+.hentry {margin: 10px 0px 10px 0px; border-radius: 3px; overflow: hidden; background: rgba(51, 51, 51, 0.8); box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6); border: none;}
 .entry-header {font-size: 20px; font-size: 2.0rem; padding: 10px; border-bottom: 1px solid #999;}
-.post-metadata {border-bottom: 1px solid #515151;}
+.post-metadata {border-bottom: 1px solid #999;}
 .entry-content, .entry-summary {padding: 15px; text-align: justify;}
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {font-weight: 700; margin-bottom: 15px;}
 .entry-content h1, .entry-content h2 {font-size: 18px; font-size: 1.8rem; letter-spacing: 1px;}
 .entry-content h3 {font-size: 16px; font-size: 1.6rem;}
-.entry-content h4, .entry-content h6 {font-size: 13px; font-size: 1.3rem;}
-.entry-meta {clear: both; font-size: 13px; font-size: 1.3rem; padding: 10px; border-top: 1px solid #515151}
+.entry-content h4 {font-size: 14px; font-size: 1.4rem;}
+.entry-content h5 {font-size: 12px; font-size: 1.2rem;}
+.entry-content h6 {font-size: 10px; font-size: 1.0rem;}
+.entry-meta {clear: both; font-size: 13px; font-size: 1.3rem; padding: 10px; border-top: 1px solid #999}
 .entry-meta a {color: #ddd;}
-.entry-fecha {float: right;}
+.entry-fecha a {float: right;}
 #FatPandaFacebookComments {overflow-x:scroll;}
 
 /* =Media
@@ -91,18 +93,16 @@ figure {margin: 0px;}
 
 /* =Caja gris superior
 ----------------------------------------------- */
-.page-header {border: 1px solid #292929; border-radius: 3px; margin-top: 10px; padding: 10px; background: rgba(65, 65, 65, 0.9);}
-.caja {text-align: center;}
-.caja ul {margin: 0; padding: 0;}
-.caja li {display: inline; padding: 5px}
-.caja a {text-decoration:none; color: #EEE;}
-.caja a:hover {color: #40d7bc;}
+#menuabc {border: 1px solid #292929; border-radius: 3px; margin-top: 10px; padding: 10px; background: rgba(65, 65, 65, 0.9); text-align: center;}
+#menuabc ul {margin: 0;}
+#menuabc li {display: inline; padding: 5px}
+#menuabc a {text-decoration:none; color: #EEE;}
+#menuabc a:hover {color: #40d7bc;}
 
 /* =Cajas de botones de navegación */
-#nav-below {clear: both; margin-bottom:10px;}
-#nav-below a {padding: 7px 10px; float: left; border:1px solid #292929; border-radius: 4px; background: rgba(65, 65, 65, 0.9); color: #ddd; text-decoration: none;}
-#nav-below .nav-next a {float: right;}
-#nav-below a:hover {color: white;}
+#cajaboton a {border:1px solid #292929; border-radius: 3px; margin-bottom: 10px; padding: 7px 10px; float: left; background: rgba(65, 65, 65, 0.9); color: #ddd; text-decoration: none;}
+#cajaboton .nav-next a {float: right; margin-right: 20px;}
+#cajaboton a:hover {color: white;}
 
 /* Metadatos */
 spin {display: none;}

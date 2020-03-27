@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
 	<?php if ( 'anime' == get_post_type() ) : /** Anime y temporadas*/ ?>
-<header class="page-header"><div class="caja">
+<header id="menuabc">
 		<form id="cambiotemporada" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get"> <?php wp_dropdown_categories( 'orderby=name&order=DESC&name=temporada&taxonomy=temporada&value_field=slug' ); ?> <input type="submit" value="Ir" /></form>
 		<?php wp_nav_menu( array( 'theme_location' => 'abc-menu' ) ); ?>
-</div></header>
+</header>
 <div id="content" class="site-content masonry" role="main">
 
 <?php while ( have_posts() ) : the_post(); ?>
@@ -14,17 +14,14 @@
 		<?php if ( has_post_thumbnail() ) { ?>
 			<figure>
 <spin><?php 
-$meta_kanji = types_render_field("titulo-kanji", array("output"=>"html"));
-if ( !empty($meta_kanji) ) {printf("Japonés: %s",$meta_kanji);}
-
-$meta_latino = types_render_field("titulo-latino", array("output"=>"html"));
-if ( !empty($meta_latino) ) {printf("Español: %s",$meta_latino);}
-
-$meta_capstotales = types_render_field("capitulos-totales", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_capstotales) ) {echo $meta_capstotales;}
-
-$meta_productor = types_render_field("productor-animacion", array("output"=>"html","show_name"=>"true"));
-if ( !empty($meta_productor) ) {echo $meta_productor;}
+$meta_kanji = get_post_meta( get_the_ID(), 'wpcf-titulo-kanji', true );
+if ( !empty($meta_kanji) ) {echo '<div class="wpcf-field">Japonés: ' . $meta_kanji . '</div>';}
+$meta_latino = get_post_meta( get_the_ID(), 'wpcf-titulo-latino', true );
+if ( !empty($meta_latino) ) {echo '<div class="wpcf-field">Latino: ' . $meta_latino . '</div>';}
+$meta_capitulos = get_post_meta( get_the_ID(), 'wpcf-capitulos-totales', true );
+if ( !empty($meta_capitulos) ) {echo '<div class="wpcf-field">Capítulos: ' . $meta_capitulos . '</div>';}
+$meta_productor = get_post_meta( get_the_ID(), 'wpcf-productor-animacion', true );
+if ( !empty($meta_productor) ) {echo '<div class="wpcf-field">Productor: ' . $meta_productor . '</div>';}
 
 $meta_origen = types_render_field("origen-animacion", array("output"=>"html","show_name"=>"true"));
 if ( !empty($meta_origen) ) {echo $meta_origen;}
@@ -42,7 +39,7 @@ $meta_termino = types_render_field("fecha-de-termino", array("output"=>"html","s
 if ( !empty($meta_termino) ) {echo $meta_termino;}
 ?></spin>
 	<a href="<?php the_permalink() ?>"><img src="<?php
-$image = wp_get_attachment_image_src( get_post_thumbnail_id(), $size = 'medium');
+$image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = '' );
 echo $image[0];
 ?>" /></a>
 			</figure> <?php } ?></div>
@@ -52,8 +49,8 @@ echo $image[0];
 	</header>
 	<div class="entry-summary"><?php the_excerpt(); ?></div>
 	<footer class="entry-meta clearfix">
-		<span class="entry-fecha"><a href="<?php the_permalink(); ?>">Leer más</a></span>
-	</footer><!-- .entry-meta -->
+        	<span class="entry-fecha"><a href="<?php the_permalink(); ?>">Leer más</a></span>
+  	</footer><!-- .entry-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php endwhile; ?>
@@ -115,5 +112,5 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id(),$size = 'full');
 </div>
 <?php endif; ?>
 
-<?php aniline_content_nav( 'nav-below' ); ?>
+<?php aniline_content_nav( 'cajaboton' ); ?>
 <?php get_footer(); ?>
